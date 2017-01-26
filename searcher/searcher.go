@@ -334,7 +334,7 @@ func updateAndReindex(
 	defer lim.Release()
 
 	repo := s.Repo
-	newRev, err := wd.PullOrClone(vcsDir, repo.Url)
+	newRev, err := wd.PullOrClone(vcsDir, repo.Url, repo.Branch)
 
 	if err != nil {
 		log.Printf("vcs pull error (%s - %s): %s", name, repo.Url, err)
