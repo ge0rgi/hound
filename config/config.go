@@ -15,6 +15,7 @@ const (
 	defaultVcs                   = "git"
 	defaultBaseUrl               = "{url}/blob/master/{path}{anchor}"
 	defaultAnchor                = "#L{line}"
+	defaultBranch		     = "master"
 )
 
 type UrlPattern struct {
@@ -31,6 +32,7 @@ type Repo struct {
 	ExcludeDotFiles   bool           `json:"exclude-dot-files"`
 	EnablePollUpdates *bool          `json:"enable-poll-updates"`
 	EnablePushUpdates *bool          `json:"enable-push-updates"`
+	Branch            string         `json:"branch"`
 }
 
 // Used for interpreting the config value for fields that use *bool. If a value
@@ -109,6 +111,9 @@ func initRepo(r *Repo) {
 		if r.UrlPattern.Anchor == "" {
 			r.UrlPattern.Anchor = defaultAnchor
 		}
+	}
+	if r.Branch == nil || r.Branch ==""{
+		r.Branch = defaultBranch
 	}
 }
 

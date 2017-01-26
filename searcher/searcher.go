@@ -391,7 +391,7 @@ func newSearcher(
 		SpecialFiles:    wd.SpecialFiles(),
 	}
 
-	rev, err := wd.PullOrClone(vcsDir, repo.Url)
+	rev, err := wd.PullOrClone(vcsDir, repo.Url, repo.Branch)
 	if err != nil {
 		return nil, err
 	}
