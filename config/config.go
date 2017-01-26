@@ -112,7 +112,7 @@ func initRepo(r *Repo) {
 			r.UrlPattern.Anchor = defaultAnchor
 		}
 	}
-	if r.Branch == nil || r.Branch ==""{
+	if r.Branch ==""{
 		r.Branch = defaultBranch
 	}
 }
